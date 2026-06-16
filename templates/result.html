@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Result</title>
+
+<link rel="stylesheet"
+
+href="{{ url_for('static',
+
+filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <a href="/download">
+
+<button>
+
+⬇ Download Resume PDF
+
+</button>
+
+</a>
+
+<div class="container">
+
+<h1>✨ Generated Results</h1>
+
+
+<div class="card">
+
+<h2>📄 Resume</h2>
+
+<pre>
+
+{{resume}}
+
+</pre>
+
+</div>
+
+
+<div class="card">
+
+<h2>📝 Cover Letter</h2>
+
+<pre>
+
+{{cover}}
+
+</pre>
+
+</div>
+
+
+<div class="card">
+
+<h2>🌐 Portfolio Intro</h2>
+
+<pre>
+
+{{portfolio}}
+
+</pre>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

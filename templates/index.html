@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>AI Resume Builder</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>✒️ AI Resume & Portfolio Builder 🐧</h1>
+
+    <p class="subtitle">
+
+        Generate Resume, Cover Letter and Portfolio using AI
+
+    </p>
+
+<form action="/generate" method="POST">
+
+<label>Name</label>
+
+<input type="text"
+
+name="name"
+
+placeholder="Enter your name"
+
+required>
+
+
+<label>Email</label>
+
+<input type="email"
+
+name="email"
+
+placeholder="Enter email"
+
+required>
+
+
+<label>Education</label>
+
+<textarea
+
+name="education"
+
+placeholder="B.Tech IT, XYZ College"
+
+required>
+
+</textarea>
+
+
+
+<label>Skills</label>
+
+<textarea
+
+name="skills"
+
+placeholder="Python, Flask, Machine Learning"
+
+required>
+
+</textarea>
+
+
+
+<label>Projects</label>
+
+<textarea
+
+name="projects"
+
+placeholder="AI Resume Builder"
+
+required>
+
+</textarea>
+
+
+
+<label>Experience</label>
+
+<textarea
+
+name="experience"
+
+placeholder="Intern at ABC Company">
+
+</textarea>
+
+
+
+<label>Achievements</label>
+
+<textarea
+
+name="achievements"
+
+placeholder="Cisco Certification">
+
+</textarea>
+
+
+
+<label>Career Objective</label>
+
+<textarea
+
+name="objective"
+
+placeholder="Seeking Software Engineer role">
+
+</textarea>
+
+
+<button>
+
+📋 Generate Resume
+
+</button>
+
+
+</form>
+
+</div>
+
+</body>
+
+</html>
