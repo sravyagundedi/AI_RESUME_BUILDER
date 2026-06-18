@@ -2,6 +2,8 @@ import google.generativeai as genai
 
 from config import Config
 
+if not Config.GEMINI_API_KEY:
+    raise Exception("GEMINI_API_KEY not found")
 
 genai.configure(
 
@@ -10,7 +12,7 @@ api_key=Config.GEMINI_API_KEY
 )
 
 
-model = genai.GenerativeModel("gemini-2.5-flash")
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 
 
@@ -28,40 +30,27 @@ def ask_ai(prompt):
 
 
 def generate_resume(data):
-
     prompt=f"""
 
 Generate an ATS friendly Resume.
 
 Name:
-
 {data['name']}
 
-Education:
+Email:
+{data['email']}
 
+Education:
 {data['education']}
 
 Skills:
-
 {data['skills']}
 
-Projects:
-
-{data['projects']}
-
 Experience:
-
 {data['experience']}
 
-Achievements:
-
-{data['achievements']}
-
-Career Objective:
-
-{data['objective']}
-
-Format professionally.
+Format the resume professionally with headings,
+bullet points and ATS-friendly structure.
 
 """
 

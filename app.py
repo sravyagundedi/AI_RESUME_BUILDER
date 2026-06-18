@@ -43,59 +43,41 @@ def download():
 
     )
 
-@app.route("/generate",methods=["POST"])
-
+@app.route("/generate", methods=["POST"])
 def generate():
 
-    data={
+    try:
 
-    "name":request.form["name"],
+        data = {
 
-    "email":request.form["email"],
+            "name": request.form.get("name",""),
 
-    "education":request.form["education"],
+            "email": request.form.get("email",""),
 
-    "skills":request.form["skills"],
+            "education": request.form.get("education",""),
 
-    "projects":request.form["projects"],
+            "skills": request.form.get("skills",""),
 
-    "experience":request.form["experience"],
+            "experience": request.form.get("experience",""),
 
-    "achievements":request.form["achievements"],
+            "projects": request.form.get("projects",""),
 
-    "objective":request.form["objective"]
+            "achievements": request.form.get("achievements",""),
 
-    }
+            "objective": request.form.get("objective","")
 
+        }
 
-    student=Student(**data)
+        resume = generate_resume(data)
 
-    db.session.add(student)
+        return render_template(
+            "result.html",
+            resume=resume
+        )
 
-    db.session.commit()
+    except Exception as e:
 
-
-    resume=generate_resume(data)
-
-    cover=generate_cover_letter(data)
-
-    portfolio=generate_portfolio_intro(data)
-
-
-    create_pdf(resume)
-
-
-    return render_template(
-
-    "result.html",
-
-    resume=resume,
-
-    cover=cover,
-
-    portfolio=portfolio
-
-    )
+        return str(e)
 
 
 
